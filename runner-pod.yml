@@ -6,11 +6,25 @@ spec:
   containers:
   - name: runner-container
     image: gitlab/gitlab-runner:alpine3.18-bleeding
+    
     ports:
-    - containerPort: 8093
+      - containerPort: 8093
+
+    env:
+      - name: GITLAB_URL
+        value: "https://gitlab.com/"
+      - name: GITLAB_REGISTRATION_TOKEN
+        value: "Token"
+      - name: EXECUTOR
+        value: "shell"
+
+    command: ["gitlab-runner"]
+    args: ["register", "--non-interactive", "--url $GITLAB_URL", "--token $GITLAB_REGISTRATION_TOKEN", "--executor $EXECUTOR"]
+
     volumeMounts:
       - name: volume-docker
         mountPath: /var/run/docker.sock
+
   volumes:
     - name: volume-docker
       hostPath:
