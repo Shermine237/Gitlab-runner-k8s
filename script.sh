@@ -3,7 +3,7 @@
 gitlab-runner register \
   --non-interactive \
   --url "$GITLAB_URL" \
-  --registration-token "$GITLAB_REGISTRATION_TOKEN" \
+  --token "$GITLAB_REGISTRATION_TOKEN" \
   --executor "$EXECUTOR" \
   --docker-image "$DOCKER_IMAGE" \
   --description "gitlab-runner" \
