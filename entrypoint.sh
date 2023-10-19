@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 gitlab-runner register \
   --non-interactive \
