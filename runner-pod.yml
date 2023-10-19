@@ -8,3 +8,10 @@ spec:
     image: gitlab/gitlab-runner:alpine3.18-bleeding
     ports:
     - containerPort: 8093
+    volumeMounts:
+      - name: volume-docker
+        mountPath: /var/run/docker.sock
+  volumes:
+    - name: volume-docker
+      hostPath:
+        path: /home/shermine237/gitlab-runner-k8s/volumes-docker-sock
