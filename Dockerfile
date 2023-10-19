@@ -10,9 +10,9 @@ ENV GITLAB_REGISTRATION_TOKEN=$REGISTRATION_TOKEN
 ENV EXECUTOR=$EXEC
 ENV DOCKER_IMAGE=$IMAGE
 
-COPY ./entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY ./script.sh /
+RUN chmod +x /script.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/script.sh"]
 
 EXPOSE 8093
