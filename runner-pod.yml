@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: runner-pod
+spec:
+  containers:
+  - name: runner-container
+    image: gitlab/gitlab-runner:alpine3.18-bleeding
+    ports:
+    - containerPort: 8093
