@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-pod
+spec:
+  containers:
+  - name: docker-container
+    image: docker:ding
+    
+    ports:
+      - containerPort: 2375
+      - containerPort: 2376
+
+    volumeMounts:
+      - name: volume-docker
+        mountPath: /var/run/docker.sock
+
+  volumes:
+    - name: volume-docker
+      hostPath:
+        path: /home/shermine237/gitlab-runner-k8s/volumes-docker-sock
