@@ -11,15 +11,15 @@ spec:
       - containerPort: 8093
 
     env:
-      - name: GITLAB_URL
+      - name: GITLAB-URL
         value: "https://gitlab.com/"
-      - name: GITLAB_REGISTRATION_TOKEN
+      - name: GITLAB-REGISTRATION-TOKEN
         value: "Token"
       - name: EXECUTOR
         value: "shell"
 
     command: ["gitlab-runner"]
-    args: ["register", "--non-interactive", "--url $GITLAB_URL", "--token $GITLAB_REGISTRATION_TOKEN", "--executor $EXECUTOR"]
+    args: ["register", "--non-interactive", "--url", "$(GITLAB-URL)", "--token", "$(GITLAB-REGISTRATION-TOKEN)", "--executor", "$(EXECUTOR)"]
 
     volumeMounts:
       - name: volume-docker

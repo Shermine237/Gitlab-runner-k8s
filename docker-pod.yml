@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: docker-container
-    image: docker:ding
+    image: docker:dind
     
     ports:
       - containerPort: 2375
