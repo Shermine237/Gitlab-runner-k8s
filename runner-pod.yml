@@ -16,15 +16,12 @@ spec:
       - name: GITLAB-REGISTRATION-TOKEN
         value: "glrt-yRbKZFs4qmBtnCwrbUJ1"
       - name: EXECUTOR
-        value: "docker"
-      - name: DOCKER-IMAGE
-        value: "alpine:3.18.4"
+        value: "kubernetes"
 
     command: ["gitlab-runner"]
     args: ["register", "--non-interactive", \
             "--url", "$(GITLAB-URL)", \
             "--token", "$(GITLAB-REGISTRATION-TOKEN)", \
-            "--docker-image", "$(DOCKER-IMAGE)", \
             "--executor", "$(EXECUTOR)", \
             "&&", "gitlab-runner", "run"]
 
