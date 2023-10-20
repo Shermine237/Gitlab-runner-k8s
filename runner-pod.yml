@@ -16,22 +16,21 @@ spec:
       - name: GITLAB-REGISTRATION-TOKEN
         value: "glrt-yRbKZFs4qmBtnCwrbUJ1"
       - name: EXECUTOR
-        value: "shell"
+        value: "docker"
+      - name: DOCKER-IMAGE
+        value: "alpine:3.18.4"
 
     command: ["gitlab-runner"]
     args: ["register", "--non-interactive", "--url", "$(GITLAB-URL)", "--token", "$(GITLAB-REGISTRATION-TOKEN)", "--executor", "$(EXECUTOR)",\
-            "&&", "gitlab-runner", "run"]
+            "--docker-image", "$(DOCKER-IMAGE)", "&&", "gitlab-runner", "run"]
 
     volumeMounts:
       - name: volume-docker
         mountPath: /var/run/docker.sock
-      - name: volume-config
-        mountPath: /etc/gitlab-runner/
+
+  restartPolicy: OnFailure
 
   volumes:
     - name: volume-docker
       hostPath:
         path: /var/run/docker.sock
-    - name: volume-config
-      hostPath:
-        path: /home/shermine237/gitlab-runner-k8s/config
