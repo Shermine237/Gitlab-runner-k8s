@@ -6,7 +6,11 @@ spec:
   containers:
   - name: docker-container
     image: docker:dind
-    
+    securityContext:
+      capabilities:
+        add:
+          - NET_ADMIN
+          - SYS_ADMIN    
     ports:
       - containerPort: 2375
       - containerPort: 2376
