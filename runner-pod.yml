@@ -12,14 +12,15 @@ spec:
 
     env:
       - name: GITLAB-URL
-        value: "https://gitlab.com/"
+        value: "http://10.152.183.188:80" #Service Gitlab IP
       - name: GITLAB-REGISTRATION-TOKEN
-        value: "Token"
+        value: "glrt-yRbKZFs4qmBtnCwrbUJ1"
       - name: EXECUTOR
         value: "shell"
 
     command: ["gitlab-runner"]
-    args: ["register", "--non-interactive", "--url", "$(GITLAB-URL)", "--token", "$(GITLAB-REGISTRATION-TOKEN)", "--executor", "$(EXECUTOR)"]
+    args: ["register", "--non-interactive", "--url", "$(GITLAB-URL)", "--token", "$(GITLAB-REGISTRATION-TOKEN)", "--executor", "$(EXECUTOR)",\
+            "&&", "gitlab-runner", "run"]
 
     volumeMounts:
       - name: volume-docker
