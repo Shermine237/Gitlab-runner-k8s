@@ -28,4 +28,4 @@ spec:
   volumes:
     - name: volume-docker
       hostPath:
-        path: /home/shermine237/gitlab-runner-k8s/volumes-docker-sock
+        path: /var/run/docker.sock
