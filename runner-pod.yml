@@ -12,7 +12,7 @@ spec:
 
     env:
       - name: GITLAB-URL
-        value: "http://10.152.183.188:80" #Service Gitlab IP
+        value: "http://gitlab-service:80" #Service Gitlab IP
       - name: GITLAB-REGISTRATION-TOKEN
         value: "glrt-yRbKZFs4qmBtnCwrbUJ1"
       - name: EXECUTOR
@@ -25,8 +25,13 @@ spec:
     volumeMounts:
       - name: volume-docker
         mountPath: /var/run/docker.sock
+      - name: volume-config
+        mountPath: /etc/gitlab-runner/
 
   volumes:
     - name: volume-docker
       hostPath:
         path: /var/run/docker.sock
+    - name: volume-config
+      hostPath:
+        path: /home/shermine237/gitlab-runner-k8s/config
