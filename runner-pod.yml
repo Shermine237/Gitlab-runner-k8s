@@ -11,27 +11,23 @@ spec:
       - containerPort: 8093
 
     env:
-      - name: GITLAB-URL
+      - name: GITLAB_URL
         value: "http://gitlab-service:80/"
-      - name: GITLAB-REGISTRATION-TOKEN
+      - name: GITLAB_REGISTRATION_TOKEN
         value: "glrt-yRbKZFs4qmBtnCwrbUJ1"
       - name: EXECUTOR
         value: "kubernetes"
 
-    command: ["gitlab-runner"]
-    args: ["register", "--non-interactive", \
-            "--url", "$(GITLAB-URL)", \
-            "--token", "$(GITLAB-REGISTRATION-TOKEN)", \
-            "--executor", "$(EXECUTOR)", \
-            "&&", "gitlab-runner", "run"]
+    command: ["/etc/gitlab-runner/entrypoint.sh"]
 
     volumeMounts:
-      - name: volume-docker
-        mountPath: /var/run/docker.sock
+      - name: config
+        mountPath: /etc/gitlab-runner
 
   restartPolicy: OnFailure
 
   volumes:
-    - name: volume-docker
+    - name: config
       hostPath:
-        path: /var/run/docker.sock
+        path: /home/shermine237/gitlab-runner-k8s/config
+
