@@ -14,7 +14,7 @@ spec:
       - name: GITLAB_URL
         value: "http://gitlab-service:80/"
       - name: GITLAB_REGISTRATION_TOKEN
-        value: "glrt-yRbKZFs4qmBtnCwrbUJ1"
+        value: "glrt-7yvMghR4a_pyiyG2m7Ax"
       - name: EXECUTOR
         value: "kubernetes"
 
