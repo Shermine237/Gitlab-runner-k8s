@@ -9,4 +9,5 @@ gitlab-runner register \
 	--kubernetes-image $IMAGE \
 	--kubernetes-helper-image $HELPER_IMAGE \
 	--kubernetes-namespace $NAMESPACE \
+	--clone-url $CLONE_URL \
 	&& gitlab-runner run;

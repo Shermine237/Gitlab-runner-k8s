@@ -14,7 +14,7 @@ spec:
       - name: GITLAB_URL
         value: "http://gitlab-service:80/"
       - name: GITLAB_REGISTRATION_TOKEN
-        value: "glrt-oq9nFX14yTszwSsSqBuH"
+        value: "glrt-cBdxZaBg3xcUzCxzuJd7"
       - name: EXECUTOR
         value: "kubernetes"
       - name: IMAGE
@@ -23,6 +23,8 @@ spec:
         value: "gitlab/gitlab-runner-helper:ubi-fips-x86_64-bleeding"
       - name: NAMESPACE
         value: "dev"
+      - name: CLONE_URL
+        value: "http://root:glpat-7nax-xv2ZcTe_h8FJR5S@gitlab.local/"
 
     command: ["/bin/sh","-c"]
     args: ["chmod +x /etc/gitlab-runner/entrypoint.sh && /etc/gitlab-runner/entrypoint.sh"]
