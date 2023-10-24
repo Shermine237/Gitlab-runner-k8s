@@ -14,11 +14,13 @@ spec:
       - name: GITLAB_URL
         value: "http://gitlab-service:80/"
       - name: GITLAB_REGISTRATION_TOKEN
-        value: "glrt-nRws1HY5eqy4Lcjzbyyu"
+        value: "glrt-oq9nFX14yTszwSsSqBuH"
       - name: EXECUTOR
         value: "kubernetes"
       - name: IMAGE
         value: "alpine:3.18.4"
+      - name: HELPER_IMAGE
+        value: "gitlab/gitlab-runner-helper:ubi-fips-x86_64-bleeding"
       - name: NAMESPACE
         value: "dev"
 
