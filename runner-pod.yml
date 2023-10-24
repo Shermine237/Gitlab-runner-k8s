@@ -14,9 +14,13 @@ spec:
       - name: GITLAB_URL
         value: "http://gitlab-service:80/"
       - name: GITLAB_REGISTRATION_TOKEN
-        value: "glrt-7yvMghR4a_pyiyG2m7Ax"
+        value: "glrt-nRws1HY5eqy4Lcjzbyyu"
       - name: EXECUTOR
         value: "kubernetes"
+      - name: IMAGE
+        value: "alpine:3.18.4"
+      - name: NAMESPACE
+        value: "dev"
 
     command: ["/bin/sh","-c"]
     args: ["chmod +x /etc/gitlab-runner/entrypoint.sh && /etc/gitlab-runner/entrypoint.sh"]
