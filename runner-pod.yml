@@ -24,7 +24,9 @@ spec:
       - name: NAMESPACE
         value: "dev"
       - name: CLONE_URL
-        value: "http://root:glpat-7nax-xv2ZcTe_h8FJR5S@gitlab.local/"
+        value: "http://gitlab.local/"
+      - name: LISTEN_ADDRESS
+        value: "127.0.0.1:80"
 
     command: ["/bin/sh","-c"]
     args: ["chmod +x /etc/gitlab-runner/entrypoint.sh && /etc/gitlab-runner/entrypoint.sh"]

@@ -10,4 +10,4 @@ gitlab-runner register \
 	--kubernetes-helper-image $HELPER_IMAGE \
 	--kubernetes-namespace $NAMESPACE \
 	--clone-url $CLONE_URL \
-	&& gitlab-runner run;
+	&& gitlab-runner run --listen-address $LISTEN_ADDRESS;
