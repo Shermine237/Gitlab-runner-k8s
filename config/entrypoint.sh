@@ -1,6 +1,8 @@
 
 #!/bin/sh
 
+rm -f /etc/gitlab-runner/config.toml;
+
 gitlab-runner register \
 	--non-interactive \
 	--url $GITLAB_URL \
@@ -10,4 +12,4 @@ gitlab-runner register \
 	--kubernetes-helper-image $HELPER_IMAGE \
 	--kubernetes-namespace $NAMESPACE \
 	--clone-url $CLONE_URL \
-	&& gitlab-runner run --listen-address $LISTEN_ADDRESS;
+	&& gitlab-runner run;

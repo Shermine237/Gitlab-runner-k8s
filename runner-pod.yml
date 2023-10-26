@@ -14,7 +14,7 @@ spec:
       - name: GITLAB_URL
         value: "http://gitlab-service:80/"
       - name: GITLAB_REGISTRATION_TOKEN
-        value: "glrt-cBdxZaBg3xcUzCxzuJd7"
+        value: "glrt-zP3A9wM1JG4CvwUh8Z1u"
       - name: EXECUTOR
         value: "kubernetes"
       - name: IMAGE
@@ -24,9 +24,7 @@ spec:
       - name: NAMESPACE
         value: "dev"
       - name: CLONE_URL
-        value: "http://gitlab.local/"
-      - name: LISTEN_ADDRESS
-        value: "127.0.0.1:80"
+        value: "http://gitlab-service:80/"
 
     command: ["/bin/sh","-c"]
     args: ["chmod +x /etc/gitlab-runner/entrypoint.sh && /etc/gitlab-runner/entrypoint.sh"]
