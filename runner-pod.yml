@@ -14,29 +14,27 @@ spec:
       - name: GITLAB_URL
         value: "http://gitlab-service:80/"
       - name: GITLAB_REGISTRATION_TOKEN
-        value: "glrt-zP3A9wM1JG4CvwUh8Z1u"
+        value: "glrt-CGVy3QbP-NzJ9dhog-pU"
       - name: EXECUTOR
         value: "kubernetes"
       - name: IMAGE
         value: "bitnami/kubectl:1.27.7-debian-11-r0"
       - name: HELPER_IMAGE
         value: "gitlab/gitlab-runner-helper:ubi-fips-x86_64-bleeding"
-      - name: NAMESPACE
-        value: "dev"
       - name: CLONE_URL
         value: "http://gitlab-service:80/"
 
     command: ["/bin/sh","-c"]
-    args: ["chmod +x /etc/gitlab-runner/entrypoint.sh && /etc/gitlab-runner/entrypoint.sh"]
-
-    volumeMounts:
-      - name: config
-        mountPath: /etc/gitlab-runner
+    args: ["rm -f /etc/gitlab-runner/config.toml; \
+            gitlab-runner register \
+            	--non-interactive \
+        	--url $GITLAB_URL \
+	        --token $GITLAB_REGISTRATION_TOKEN \
+         	--executor $EXECUTOR \
+        	--kubernetes-image $IMAGE \
+        	--kubernetes-helper-image $HELPER_IMAGE \
+        	--clone-url $CLONE_URL \
+        	&& gitlab-runner run;"]
 
   restartPolicy: OnFailure
-
-  volumes:
-    - name: config
-      hostPath:
-        path: /home/shermine237/gitlab-runner-k8s/config
 
