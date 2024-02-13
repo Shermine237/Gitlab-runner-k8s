@@ -12,7 +12,7 @@ spec:
 
     env:
       - name: GITLAB_URL
-        value: "http://gitlab-service:80/"
+        value: "http://192.168.100.100:80/"
       - name: GITLAB_REGISTRATION_TOKEN
         value: "glrt-CGVy3QbP-NzJ9dhog-pU"
       - name: EXECUTOR
@@ -22,7 +22,7 @@ spec:
       - name: HELPER_IMAGE
         value: "gitlab/gitlab-runner-helper:ubi-fips-x86_64-bleeding"
       - name: CLONE_URL
-        value: "http://gitlab-service:80/"
+        value: "http://192.168.100.100:80/"
 
     command: ["/bin/sh","-c"]
     args: ["rm -f /etc/gitlab-runner/config.toml; \
